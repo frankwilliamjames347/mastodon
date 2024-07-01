@@ -22,6 +22,9 @@ jobs:
       RAILS_ENV: test
     steps:
       - checkout
+      - run:
+          name: Install libidn
+          command: sudo apt-get update && sudo apt-get install -y libidn11-dev
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
